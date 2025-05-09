@@ -21,7 +21,7 @@ fi
 ### polkit: Used for GUI privilege escalation (safe to disable on servers)
 if systemctl is-active --quiet polkit; then
   echo "Disabling polkit..."
-  sudo systemctl disable --now polkit
+  sudo systemctl systemctl stop polkit
 fi
 
 ### MOTD (Message of the Day): Remove login spam
@@ -39,7 +39,7 @@ fi
 echo "Silencing SSH login banners..."
 sudo sed -i 's/^#\?PrintMotd.*/PrintMotd no/' /etc/ssh/sshd_config
 sudo sed -i 's/^#\?PrintLastLog.*/PrintLastLog no/' /etc/ssh/sshd_config
-sudo systemctl restart sshd
+sudo systemctl restart ssh
 
 ### Optional: Install useful monitoring tools
 echo "Installing optional CLI tools (htop, glances)..."
